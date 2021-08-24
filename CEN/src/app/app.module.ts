@@ -1,16 +1,28 @@
-import { NgModule } from "@angular/core";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { ErrorHandler, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
 import { CoreModule } from "./core/core.module";
+import { GlobalErrorHandler } from "./core/handlers/globalError.handler";
+import { HttpErrorInterceptor } from "./core/interceptors/httpError.interceptor";
+import { JwtInterceptor } from "./core/interceptors/jwt.interceptor";
 import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
     declarations: [AppComponent],
     imports: [BrowserModule, AppRoutingModule, CoreModule, SharedModule],
-    providers: [],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: ErrorHandler, useClass: GlobalErrorHandler },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpErrorInterceptor,
+            multi: true,
+        },
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

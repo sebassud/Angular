@@ -3,6 +3,13 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule } from "@angular/common/http";
+import { RouterModule } from "@angular/router";
+import { MatButtonModule } from "@angular/material/button";
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatIconModule } from "@angular/material/icon";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatDividerModule } from "@angular/material/divider";
 
 @NgModule({
     imports: [CommonModule],
@@ -11,6 +18,13 @@ import { HttpClientModule } from "@angular/common/http";
         FormsModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        RouterModule,
+        FlexLayoutModule,
+        MatButtonModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatDividerModule,
     ],
     declarations: [],
 })

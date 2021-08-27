@@ -1,66 +1,9 @@
 <div fxLayout="column" fxFlexFill>
-    <mat-toolbar
-        class="mat-elevation-z8"
-        fxLayout="row"
-        fxLayoutAlign="start stretch"
-        style="z-index: 2"
-        color="primary"
-    >
-        <button mat-button (click)="drawer.toggle()">
-            <mat-icon>menu</mat-icon>
-        </button>
-
-        <div fxLayout="row" fxLayoutAlign="start center">CEN</div>
-
-        <span fxFlex></span>
-
-        <div
-            fxLayout="row"
-            fxLayoutAlign="start center"
-            fxShow="false"
-            fxShow.gt-sm
-        >
-            Sebastian Sudra (Enigman)
-        </div>
-    </mat-toolbar>
+    <app-toolbar (toggleMenuEvent)="this.drawer.toggle()"></app-toolbar>
 
     <mat-sidenav-container fxFlex autosize class="background">
         <mat-sidenav #drawer>
-            <div fxLayout="column">
-                <button
-                    mat-button
-                    routerLink="/Home/Page1"
-                    routerLinkActive="link-active"
-                    fxLayoutAlign="start"
-                    class="menu-item"
-                >
-                    <mat-icon>filter_1</mat-icon>
-                    <span>Page 1</span>
-                </button>
-                <mat-divider></mat-divider>
-                <button
-                    mat-button
-                    routerLink="/Home/Page2"
-                    routerLinkActive="link-active"
-                    fxLayoutAlign="start"
-                    class="menu-item"
-                >
-                    <mat-icon>filter_2</mat-icon>
-                    <span>Page 2</span>
-                </button>
-                <mat-divider></mat-divider>
-                <button
-                    mat-button
-                    routerLink="/Home/Page3"
-                    routerLinkActive="link-active"
-                    fxLayoutAlign="start"
-                    class="menu-item"
-                >
-                    <mat-icon>filter_3</mat-icon>
-                    <span>Page 3</span>
-                </button>
-                <mat-divider></mat-divider>
-            </div>
+            <app-menu></app-menu>
         </mat-sidenav>
 
         <div>

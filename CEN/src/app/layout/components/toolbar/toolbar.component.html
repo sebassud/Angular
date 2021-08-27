@@ -1,0 +1,24 @@
+<mat-toolbar
+    class="mat-elevation-z8"
+    fxLayout="row"
+    fxLayoutAlign="start stretch"
+    style="z-index: 2"
+    color="primary"
+>
+    <button mat-button (click)="this.toggleMenu()">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <div fxLayout="row" fxLayoutAlign="start center">CEN</div>
+
+    <span fxFlex></span>
+
+    <div
+        fxLayout="row"
+        fxLayoutAlign="start center"
+        fxShow="false"
+        fxShow.gt-sm
+    >
+        Sebastian Sudra (Enigman)
+    </div>
+</mat-toolbar>

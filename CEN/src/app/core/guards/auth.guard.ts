@@ -53,7 +53,7 @@ export class AuthGuard implements CanLoad, CanActivateChild {
         if (navigation) {
             url = navigation.extractedUrl.toString();
         }
-        this.router.navigate(["/account/login"], {
+        this.router.navigate(["/Account/Login"], {
             queryParams: { returnUrl: url },
         });
         return false;

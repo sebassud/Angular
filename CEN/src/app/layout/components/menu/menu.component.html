@@ -1,0 +1,38 @@
+<div>
+    <mat-accordion class="app-nav-accordion">
+        <mat-nav-list>
+            <a
+                mat-list-item
+                routerLink="/Home/Page1"
+                routerLinkActive="link-active"
+                class="menu-item"
+                ><mat-icon mat-list-icon>home</mat-icon> Page1</a
+            >
+        </mat-nav-list>
+
+        <mat-divider></mat-divider>
+
+        <mat-expansion-panel class="mat-elevation-z0" [expanded]="true">
+            <mat-expansion-panel-header class="menu-item-icon">
+                <mat-icon>filter_1</mat-icon>
+                <span>Pages</span>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+                <a
+                    mat-list-item
+                    routerLink="/Home/Page2"
+                    routerLinkActive="link-active"
+                    class="menu-item"
+                    >Page2</a
+                >
+                <a
+                    mat-list-item
+                    routerLink="/Home/Page3"
+                    routerLinkActive="link-active"
+                    class="menu-item"
+                    >Page3</a
+                >
+            </mat-nav-list>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

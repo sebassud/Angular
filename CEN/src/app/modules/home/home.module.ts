@@ -5,6 +5,7 @@ import { Page1Component } from "./pages/page1/page1.component";
 import { Page2Component } from "./pages/page2/page2.component";
 import { Page3Component } from "./pages/page3/page3.component";
 import { DashboardComponent } from "./pages/dashboard/dashboard.component";
+import { SharedModule } from "src/app/shared/shared.module";
 
 const routes: Routes = [
     { path: "", component: DashboardComponent, pathMatch: "full" },
@@ -15,7 +16,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [CommonModule, RouterModule.forChild(routes)],
-    declarations: [],
+    imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
+    declarations: [
+        Page1Component,
+        Page2Component,
+        Page3Component,
+        DashboardComponent,
+    ],
 })
 export class HomeModule {}

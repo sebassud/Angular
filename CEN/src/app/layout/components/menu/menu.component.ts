@@ -7,8 +7,6 @@ import { AuthenticationService } from "src/app/core/services/authentication.serv
     styleUrls: ["./menu.component.scss"],
 })
 export class MenuComponent implements OnInit {
-    showSubmenu: boolean = false;
-    showSubmenu2: boolean = false;
     constructor() {}
 
     ngOnInit() {}

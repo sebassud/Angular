@@ -71,4 +71,33 @@ body {
             padding-left: 2em !important;
         }
     }
+    .link-active {
+        background-color: #a5d6a7 !important;
+        border-radius: 0px;
+        font-weight: bold;
+    }
+    .menu-item-icon span {
+        padding-left: 0.5em;
+        padding-right: 2em;
+    }
+    .menu-item {
+        height: 3em !important;
+        font-size: 15px !important;
+    }
+}
+
+// Panel
+.panel-container {
+    .mat-expansion-panel-header {
+        background-color: #a5d6a7 !important;
+    }
+    .mat-expansion-panel:is(.mat-expanded) {
+        .mat-expansion-panel-content {
+            padding-top: 16px;
+        }
+    }
+    .mat-expansion-panel:not(.mat-expanded),
+    .mat-expansion-panel:not(.mat-expansion-panel-spacing) {
+        margin-bottom: 16px;
+    }
 }

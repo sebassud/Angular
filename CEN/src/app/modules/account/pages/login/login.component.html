@@ -1,0 +1,45 @@
+<div fxLayout="row" fxLayoutAlign="center">
+    <mat-card fxFlex="40" fxFlex.lt-md="100">
+        <div fxLayout="row" fxLayoutAlign="center">
+            <img
+                mat-card-image
+                src="/assets/favicon.svg"
+                alt="Logo"
+                fxFlex="50"
+            />
+        </div>
+        <mat-card-content>
+            <div fxLayout="row" fxLayoutAlign="center">
+                <mat-form-field appearance="outline" fxFlex="80">
+                    <mat-label>Nazwa użytkownika</mat-label>
+                    <input matInput />
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center">
+                <mat-form-field appearance="outline" fxFlex="80">
+                    <mat-label>Hasło</mat-label>
+                    <input
+                        matInput
+                        [type]="hidePassword ? 'password' : 'text'"
+                    />
+                    <button
+                        mat-icon-button
+                        matSuffix
+                        (click)="hidePassword = !hidePassword"
+                        attr.aria-label="Ukryj hasło"
+                        [attr.aria-pressed]="hidePassword"
+                    >
+                        <mat-icon>{{
+                            hidePassword ? "visibility_off" : "visibility"
+                        }}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <div fxLayout="row" fxLayoutAlign="end">
+                <button mat-button color="primary">Zaloguj się</button>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>

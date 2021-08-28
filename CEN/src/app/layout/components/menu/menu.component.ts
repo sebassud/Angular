@@ -4,7 +4,6 @@ import { AuthenticationService } from "src/app/core/services/authentication.serv
 @Component({
     selector: "app-menu",
     templateUrl: "./menu.component.html",
-    styleUrls: ["./menu.component.scss"],
 })
 export class MenuComponent implements OnInit {
     constructor() {}

@@ -6,7 +6,6 @@ import { filter } from "rxjs/operators";
 @Component({
     selector: "app-page-menu-item",
     templateUrl: "./page-menu-item.component.html",
-    styleUrls: ["./page-menu-item.component.scss"],
 })
 export class PageMenuItemComponent implements OnInit, OnDestroy {
     private sub: Subscription;

@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
-
+import { ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
+
 import { MatButtonModule } from "@angular/material/button";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatIconModule } from "@angular/material/icon";
@@ -21,7 +21,7 @@ import { MatCardModule } from "@angular/material/card";
     imports: [CommonModule],
     exports: [
         CommonModule,
-        FormsModule,
+        ReactiveFormsModule,
         RouterModule,
         FlexLayoutModule,
         MatButtonModule,

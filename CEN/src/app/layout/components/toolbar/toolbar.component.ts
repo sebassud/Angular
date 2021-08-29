@@ -24,4 +24,8 @@ export class ToolbarComponent implements OnInit {
             this.router.navigate(["Account/Login"]);
         }
     }
+
+    get desciptionUser(): string {
+        return this.toolbarService.descriptionUser();
+    }
 }

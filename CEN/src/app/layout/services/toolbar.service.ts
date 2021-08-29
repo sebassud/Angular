@@ -5,10 +5,14 @@ import { AuthenticationService } from "src/app/core/services/authentication.serv
     providedIn: "root",
 })
 export class ToolbarService {
-    constructor(private aouthenticationService: AuthenticationService) {}
+    constructor(private authenticationService: AuthenticationService) {}
 
     logout(): boolean {
-        this.aouthenticationService.logout();
+        this.authenticationService.logout();
         return true;
+    }
+
+    descriptionUser(): string {
+        return `${this.authenticationService.userValue?.firstName} ${this.authenticationService.userValue?.lastName} (${this.authenticationService.userValue?.username})`;
     }
 }

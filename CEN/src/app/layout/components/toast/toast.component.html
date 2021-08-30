@@ -1,0 +1,12 @@
+<div *ngFor="let message of messages">
+    <div
+        class="alert"
+        [ngClass]="{
+            'alert-success': message.style === successStyle,
+            'alert-error': message.style === errorStyle,
+            'alert-info': message.style === infoStyle
+        }"
+    >
+        {{ message.content }}
+    </div>
+</div>

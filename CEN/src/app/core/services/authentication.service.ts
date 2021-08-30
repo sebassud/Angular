@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { IUser } from "../models/user";
 import { LocalStorageService } from "./local-storage.service";
 
@@ -15,8 +16,8 @@ export class AuthenticationService {
         return this.userSubject.value;
     }
 
-    public get isLogged(): boolean {
-        return this.userValue !== null;
+    public get isLogged(): Observable<boolean> {
+        return this.userSubject.pipe(map((u) => u !== null));
     }
 
     constructor(private storageService: LocalStorageService) {
@@ -24,7 +25,7 @@ export class AuthenticationService {
         this.user = this.userSubject.asObservable();
     }
 
-    public login(user: IUser) {
+    public setUser(user: IUser | null) {
         this.saveUser(user);
         this.userSubject.next(user);
     }

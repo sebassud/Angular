@@ -27,7 +27,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                     [401].includes(err.status) &&
                     this.authenticationService.isLogged
                 ) {
-                    this.authenticationService.logout();
+                    this.authenticationService.setUser(null);
                 }
                 if (err.status === 500) this.logger.error(err.error);
 

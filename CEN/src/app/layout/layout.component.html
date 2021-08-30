@@ -1,12 +1,12 @@
 <div fxLayout="column" fxFlexFill>
     <app-toolbar
-        *ngIf="isLogged"
+        *ngIf="isLogged | async"
         (toggleMenuEvent)="this.drawer.toggle()"
     ></app-toolbar>
 
     <mat-sidenav-container fxFlex autosize class="background">
         <mat-sidenav #drawer>
-            <app-menu *ngIf="isLogged"></app-menu>
+            <app-menu *ngIf="isLogged | async"></app-menu>
         </mat-sidenav>
 
         <div class="body-container">

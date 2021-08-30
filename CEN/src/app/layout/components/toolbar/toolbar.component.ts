@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { Router } from "@angular/router";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { ToolbarService } from "../../services/toolbar.service";
 
 @Component({
@@ -25,7 +27,11 @@ export class ToolbarComponent implements OnInit {
         }
     }
 
-    get desciptionUser(): string {
-        return this.toolbarService.descriptionUser();
+    get desciptionUser(): Observable<string> {
+        return this.toolbarService
+            .getUser()
+            .pipe(
+                map((u) => `${u?.firstName} ${u?.lastName} (${u?.username})`)
+            );
     }
 }

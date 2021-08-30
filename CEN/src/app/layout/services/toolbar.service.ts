@@ -1,4 +1,6 @@
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { IUser } from "src/app/core/models/user";
 import { AuthenticationService } from "src/app/core/services/authentication.service";
 
 @Injectable({
@@ -8,11 +10,11 @@ export class ToolbarService {
     constructor(private authenticationService: AuthenticationService) {}
 
     logout(): boolean {
-        this.authenticationService.logout();
+        this.authenticationService.setUser(null);
         return true;
     }
 
-    descriptionUser(): string {
-        return `${this.authenticationService.userValue?.firstName} ${this.authenticationService.userValue?.lastName} (${this.authenticationService.userValue?.username})`;
+    getUser(): Observable<IUser | null> {
+        return this.authenticationService.user;
     }
 }

@@ -18,7 +18,7 @@ export class AccountService {
             id: 0,
             userPermissions: [],
         };
-        this.aouthenticationService.login(user);
+        this.aouthenticationService.setUser(user);
         return true;
     }
 }

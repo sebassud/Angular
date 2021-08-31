@@ -39,7 +39,7 @@ export class AuthGuard implements CanLoad, CanActivateChild {
         | UrlTree
         | Observable<boolean | UrlTree>
         | Promise<boolean | UrlTree> {
-        if (this.authenticationService.isLogged) {
+        if (this.authenticationService.userValue !== null) {
             return this.authorizationProcess(route);
         } else {
             return this.authenticationProcess();

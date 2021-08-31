@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
 
     click() {
         this.toastService.sendMessage(
-            `git-${this.num}`,
+            `Bardzo długi napis, który ma sprawdzić czy się alerty rozszerzaja.git-${this.num}`,
             ToastMessageStatus.success
         );
         this.num++;

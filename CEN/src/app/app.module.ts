@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule } from "@angular/common/http";
 
 import { MatNativeDateModule } from "@angular/material/core";
-
+import { ToastrModule } from "ngx-toastr";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
@@ -20,6 +20,7 @@ import { LayoutModule } from "./layout/layout.module";
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        ToastrModule.forRoot(),
         HttpClientModule,
         MatNativeDateModule,
         AppRoutingModule,

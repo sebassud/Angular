@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
+import { ToastrService } from "ngx-toastr";
 import { Subscription } from "rxjs";
 import {
     ToastMessage,
@@ -9,34 +10,28 @@ import { ToastService } from "src/app/core/services/toast.service";
 @Component({
     selector: "app-toast",
     templateUrl: "./toast.component.html",
-    styleUrls: ["./toast.component.scss"],
 })
 export class ToastComponent implements OnInit, OnDestroy {
-    private readonly interval: number = 5000;
     private subscription: Subscription;
-    messages: ToastMessage[] = [];
 
-    get successStyle(): ToastMessageStatus {
-        return ToastMessageStatus.success;
-    }
-
-    get errorStyle(): ToastMessageStatus {
-        return ToastMessageStatus.error;
-    }
-
-    get infoStyle(): ToastMessageStatus {
-        return ToastMessageStatus.info;
-    }
-
-    constructor(private toastService: ToastService) {
+    constructor(private toastService: ToastService, toastr: ToastrService) {
+        toastr.toastrConfig.closeButton = true;
+        toastr.toastrConfig.progressBar = true;
+        toastr.toastrConfig.maxOpened = 5;
         this.subscription = this.toastService
             .getMessage()
             .subscribe((message) => {
-                this.messages.push(message);
-                console.log(this.interval * this.messages.length);
-                setTimeout(() => {
-                    this.messages.shift();
-                }, this.interval * this.messages.length);
+                switch (message.style) {
+                    case ToastMessageStatus.success:
+                        toastr.success(message.content);
+                        break;
+                    case ToastMessageStatus.error:
+                        toastr.error(message.content);
+                        break;
+                    case ToastMessageStatus.info:
+                        toastr.info(message.content);
+                        break;
+                }
             });
     }
 
